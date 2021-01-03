@@ -1,11 +1,13 @@
 package com.udacity.asteroidradar.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.udacity.asteroidradar.Constants.API_KEY
 import com.udacity.asteroidradar.api.NasaApi
+import com.udacity.asteroidradar.api.parseAsteriodResponseToList
 import com.udacity.asteroidradar.domain.Asteroid
 import kotlinx.coroutines.launch
 
@@ -23,10 +25,12 @@ class MainViewModel : ViewModel() {
         getAllAsteroid()
     }
 
+
     private fun getAllAsteroid() {
         viewModelScope.launch {
             val responseObj = NasaApi.nasaService.getAsteroids("2015-09-07", "2015-09-10", API_KEY)
-          //  asteroidList = responseObj.nearEarthObjects.keys
+            Log.i("model", responseObj.toString())
+            _asteriodList.value = parseAsteriodResponseToList(responseObj.near_earth_objects)
         }
     }
 }
