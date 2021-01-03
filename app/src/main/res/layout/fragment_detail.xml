@@ -55,7 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@{asteroid.closeApproachDate}"
+                        android:text="@{asteroid.close_approach_data.get(0).close_approach_date}"
                         android:textColor="@color/default_text_color"
                         tools:text="2020-02-01" />
                 </LinearLayout>
@@ -85,7 +85,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:textColor="@color/default_text_color"
-                            app:astronomicalUnitText="@{asteroid.absoluteMagnitude}"
+                            app:astronomicalUnitText="@{asteroid.absolute_magnitude_h}"
                             tools:text="25.126 au" />
                     </LinearLayout>
 
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:textColor="@color/default_text_color"
-                    app:kmUnitText="@{asteroid.estimatedDiameter}"
+                    app:kmUnitText="@{asteroid.estimatedDiameter.kilometers.estimated_diameter_max}"
                     tools:text="0.82 km" />
 
                 <TextView
@@ -121,14 +121,15 @@
                     android:text="@string/relative_velocity_title"
                     android:textColor="@color/default_text_color" />
 
+<!--                app:velocityText="@{asteroid.closeApproachDate.get(0).relativeVelocity.kilometersPerSecond}"-->
+
                 <TextView
                     android:id="@+id/relative_velocity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:textColor="@color/default_text_color"
-                    app:velocityText="@{asteroid.relativeVelocity}"
-                    tools:text="11.9 km/s" />
+                   tools:text="11.9 km/s" />
 
                 <TextView
                     android:layout_width="match_parent"

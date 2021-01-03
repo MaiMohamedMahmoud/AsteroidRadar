@@ -1,33 +1,43 @@
 package com.udacity.asteroidradar.main
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.udacity.asteroidradar.R
+import com.udacity.asteroidradar.databinding.FragmentListItemBinding
 import com.udacity.asteroidradar.domain.Asteroid
 
 class AsteriodAdapter() :
     ListAdapter<Asteroid, AsteriodAdapter.AsteriodViewHolder>(callBackDiff()) {
-    class AsteriodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class AsteriodViewHolder(val binding: FragmentListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(asteroid: Asteroid) {
+            binding.asteriodObj = asteroid
+        }
+
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AsteriodViewHolder {
-        TODO("Not yet implemented")
+        val binding: FragmentListItemBinding =
+            FragmentListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return AsteriodViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: AsteriodViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(getItem(position))
     }
 
     class callBackDiff : DiffUtil.ItemCallback<Asteroid>() {
         override fun areItemsTheSame(oldItem: Asteroid, newItem: Asteroid): Boolean {
-            TODO("Not yet implemented")
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Asteroid, newItem: Asteroid): Boolean {
-            TODO("Not yet implemented")
+            return oldItem == newItem
         }
 
     }
