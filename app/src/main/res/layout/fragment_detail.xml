@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            app:asteroidStatusImage="@{asteroid.potentiallyHazardous}"
+            app:asteroidStatusImage="@{asteroid._potentially_hazardous_asteroid}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -121,7 +121,7 @@
                     android:text="@string/relative_velocity_title"
                     android:textColor="@color/default_text_color" />
 
-<!--                app:velocityText="@{asteroid.closeApproachDate.get(0).relativeVelocity.kilometersPerSecond}"-->
+                <!--                app:velocityText="@{asteroid.closeApproachDate.get(0).relativeVelocity.kilometersPerSecond}"-->
 
                 <TextView
                     android:id="@+id/relative_velocity"
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:textColor="@color/default_text_color"
-                   tools:text="11.9 km/s" />
+                    tools:text="11.9 km/s" />
 
                 <TextView
                     android:layout_width="match_parent"

@@ -30,6 +30,9 @@ class MainFragment : Fragment() {
         viewModel.asteroidList.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })
+        viewModel.pictureOfDay.observe(viewLifecycleOwner, Observer {
+
+        })
 
 
         binding.asteroidRecycler.layoutManager = manager
