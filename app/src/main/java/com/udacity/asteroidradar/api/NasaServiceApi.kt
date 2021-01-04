@@ -1,5 +1,6 @@
 package com.udacity.asteroidradar.api
 
+import androidx.lifecycle.LiveData
 import com.udacity.asteroidradar.domain.Asteroid
 import com.udacity.asteroidradar.domain.PictureOfDay
 import com.udacity.asteroidradar.domain.Response
@@ -11,7 +12,7 @@ import retrofit2.http.Query
 interface NasaServiceApi {
 
     //Retrieve a list of Asteroids based on their closest approach date to Earth
-    @GET("https://api.nasa.gov/neo/rest/v1/feed")
+    @GET("neo/rest/v1/feed")
     suspend fun getAsteroids(
         @Query("start_date") startDate: String,
         @Query("end_date") endDate: String,
@@ -19,7 +20,7 @@ interface NasaServiceApi {
     ): Response
 
 
-    @GET("/planetary/apod")
+    @GET("planetary/apod")
     suspend fun getPictureOfDay(@Query("api_key") apiKey: String): PictureOfDay
 
 }

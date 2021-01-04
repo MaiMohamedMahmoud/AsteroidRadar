@@ -9,7 +9,10 @@ import com.udacity.asteroidradar.Constants.API_KEY
 import com.udacity.asteroidradar.api.NasaApi
 import com.udacity.asteroidradar.api.parseAsteriodResponseToList
 import com.udacity.asteroidradar.domain.Asteroid
+import com.udacity.asteroidradar.domain.PictureOfDay
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class MainViewModel : ViewModel() {
 
@@ -21,16 +24,48 @@ class MainViewModel : ViewModel() {
     val asteroidList: LiveData<List<Asteroid>>
         get() = _asteriodList
 
+    // The internal MutableLiveData String that stores the status of the most recent request
+    private val _pictureOfDay = MutableLiveData<PictureOfDay>()
+
+    // The external immutable LiveData for the request status String
+    val pictureOfDay: LiveData<PictureOfDay>
+        get() = _pictureOfDay
+
+
     init {
         getAllAsteroid()
+        getImageDay()
     }
 
 
     private fun getAllAsteroid() {
-        viewModelScope.launch {
-            val responseObj = NasaApi.nasaService.getAsteroids("2015-09-07", "2015-09-10", API_KEY)
-            Log.i("model", responseObj.toString())
-            _asteriodList.value = parseAsteriodResponseToList(responseObj.near_earth_objects)
+        try {
+            viewModelScope.launch {
+                val responseObj =
+                    NasaApi.nasaService.getAsteroids("2021-01-01", "2021-01-07", API_KEY)
+                Log.i("model", responseObj.toString())
+                _asteriodList.value = parseAsteriodResponseToList(responseObj.near_earth_objects)
+            }
+        } catch (networkError: IOException) {
+            // Show a Toast error message and hide the progress bar.
         }
+    }
+
+    private fun getImageDay() {
+        try {
+
+
+            viewModelScope.launch {
+
+                val imageObj = NasaApi.nasaService.getPictureOfDay(API_KEY)
+                Log.i("model", imageObj.toString())
+                _pictureOfDay.value = imageObj
+
+
+            }
+        } catch (networkError: IOException) {
+            // Show a Toast error message and hide the progress bar.
+        }
+
     }
 }

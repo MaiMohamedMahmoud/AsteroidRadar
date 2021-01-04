@@ -19,7 +19,7 @@ data class Asteroid(
     @Json(name = "estimated_diameter")
     val estimatedDiameter: EstimatedDiameter,
     @Json(name = "is_potentially_hazardous_asteroid")
-    val isPotentiallyHazardous: Boolean
+    val is_potentially_hazardous_asteroid: Boolean
 ) : Parcelable
 
 
