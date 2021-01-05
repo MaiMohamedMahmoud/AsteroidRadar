@@ -6,11 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.udacity.asteroidradar.Constants.API_KEY
-import com.udacity.asteroidradar.api.NasaApi
-import com.udacity.asteroidradar.api.parseAsteriodResponseToList
+import com.udacity.asteroidradar.Network.NasaApi
+import com.udacity.asteroidradar.Network.parseAsteriodResponseToList
 import com.udacity.asteroidradar.domain.Asteroid
 import com.udacity.asteroidradar.domain.PictureOfDay
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 
@@ -32,9 +31,17 @@ class MainViewModel : ViewModel() {
         get() = _pictureOfDay
 
 
+    //status for navigation
+    private val _statusNavigation = MutableLiveData<Asteroid>()
+
+    // The external immutable LiveData for the request status String
+    val statusNavigation: LiveData<Asteroid>
+        get() = _statusNavigation
+
     init {
         getAllAsteroid()
         getImageDay()
+        _statusNavigation.value = null
     }
 
 
@@ -53,8 +60,6 @@ class MainViewModel : ViewModel() {
 
     private fun getImageDay() {
         try {
-
-
             viewModelScope.launch {
 
                 val imageObj = NasaApi.nasaService.getPictureOfDay(API_KEY)
@@ -66,6 +71,13 @@ class MainViewModel : ViewModel() {
         } catch (networkError: IOException) {
             // Show a Toast error message and hide the progress bar.
         }
+    }
 
+    fun setNavigation(asteriod: Asteroid) {
+        _statusNavigation.value = asteriod
+    }
+
+    fun clearStatusNavigation() {
+        _statusNavigation.value = null
     }
 }
