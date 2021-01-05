@@ -1,10 +1,7 @@
-package com.udacity.asteroidradar.api
+package com.udacity.asteroidradar.Network
 
-import androidx.lifecycle.LiveData
-import com.udacity.asteroidradar.domain.Asteroid
 import com.udacity.asteroidradar.domain.PictureOfDay
 import com.udacity.asteroidradar.domain.Response
-import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Query
 

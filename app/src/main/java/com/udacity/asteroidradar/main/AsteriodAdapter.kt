@@ -10,8 +10,9 @@ import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.databinding.FragmentListItemBinding
 import com.udacity.asteroidradar.domain.Asteroid
 
-class AsteriodAdapter() :
+class AsteriodAdapter(val onClickListener: OnClickListener) :
     ListAdapter<Asteroid, AsteriodAdapter.AsteriodViewHolder>(callBackDiff()) {
+
     class AsteriodViewHolder(val binding: FragmentListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(asteroid: Asteroid) {
@@ -28,6 +29,9 @@ class AsteriodAdapter() :
     }
 
     override fun onBindViewHolder(holder: AsteriodViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(getItem(position))
+        }
         holder.bind(getItem(position))
     }
 
@@ -41,4 +45,9 @@ class AsteriodAdapter() :
         }
 
     }
+
+    class OnClickListener(val clickListener: (asteroid: Asteroid) -> Unit) {
+        fun onClick(asteroid: Asteroid) = clickListener(asteroid)
+    }
+
 }

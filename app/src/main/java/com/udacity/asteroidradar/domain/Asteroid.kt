@@ -17,7 +17,7 @@ data class Asteroid(
     @Json(name = "absolute_magnitude_h")
     val absolute_magnitude_h: Double,
     @Json(name = "estimated_diameter")
-    val estimatedDiameter: EstimatedDiameter,
+    val estimated_diameter: EstimatedDiameter,
     @Json(name = "is_potentially_hazardous_asteroid")
     val is_potentially_hazardous_asteroid: Boolean
 ) : Parcelable
@@ -35,13 +35,14 @@ data class CloseApproachDate(
 
 @Parcelize
 data class MissDistance(
-    val astronomical: String
+    @Json(name = "astronomical")
+    val astronomical: Double
 ) : Parcelable
 
 @Parcelize
 data class RelativeVelocity(
     @Json(name = "kilometers_per_second")
-    val kilometers_per_second: String
+    val kilometers_per_second: Double
 ) : Parcelable
 
 @Parcelize
