@@ -9,19 +9,13 @@ import com.udacity.asteroidradar.Constants.API_KEY
 import com.udacity.asteroidradar.Network.NasaApi
 import com.udacity.asteroidradar.Network.parseAsteriodResponseToList
 import com.udacity.asteroidradar.domain.Asteroid
+import com.udacity.asteroidradar.domain.DomainAsteriod
 import com.udacity.asteroidradar.domain.PictureOfDay
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class MainViewModel : ViewModel() {
+class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
 
-
-    // The internal MutableLiveData String that stores the status of the most recent request
-    private val _asteriodList = MutableLiveData<List<Asteroid>>()
-
-    // The external immutable LiveData for the request status String
-    val asteroidList: LiveData<List<Asteroid>>
-        get() = _asteriodList
 
     // The internal MutableLiveData String that stores the status of the most recent request
     private val _pictureOfDay = MutableLiveData<PictureOfDay>()
@@ -32,48 +26,47 @@ class MainViewModel : ViewModel() {
 
 
     //status for navigation
-    private val _statusNavigation = MutableLiveData<Asteroid>()
+    private val _statusNavigation = MutableLiveData<DomainAsteriod>()
 
     // The external immutable LiveData for the request status String
-    val statusNavigation: LiveData<Asteroid>
+    val statusNavigation: LiveData<DomainAsteriod>
         get() = _statusNavigation
 
     init {
         getAllAsteroid()
         getImageDay()
+
         _statusNavigation.value = null
     }
 
+    val asteriodList = mainViewRepository.getAllAsteriodList()
+    fun showAll() {
+        Log.i("yarab", asteriodList.toString())
+    }
 
     private fun getAllAsteroid() {
         try {
             viewModelScope.launch {
-                val responseObj =
-                    NasaApi.nasaService.getAsteroids("2021-01-01", "2021-01-07", API_KEY)
-                Log.i("model", responseObj.toString())
-                _asteriodList.value = parseAsteriodResponseToList(responseObj.near_earth_objects)
+                mainViewRepository.refreshDatabase()
             }
         } catch (networkError: IOException) {
-            // Show a Toast error message and hide the progress bar.
+//            // Show a Toast error message and hide the progress bar.
         }
     }
 
     private fun getImageDay() {
         try {
             viewModelScope.launch {
-
                 val imageObj = NasaApi.nasaService.getPictureOfDay(API_KEY)
                 Log.i("model", imageObj.toString())
                 _pictureOfDay.value = imageObj
-
-
             }
         } catch (networkError: IOException) {
             // Show a Toast error message and hide the progress bar.
         }
     }
 
-    fun setNavigation(asteriod: Asteroid) {
+    fun setNavigation(asteriod: DomainAsteriod) {
         _statusNavigation.value = asteriod
     }
 
