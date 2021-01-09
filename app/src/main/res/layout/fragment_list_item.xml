@@ -6,7 +6,7 @@
     <data>
         <variable
             name="AsteriodObj"
-            type="com.udacity.asteroidradar.domain.Asteroid" />
+            type="com.udacity.asteroidradar.domain.DomainAsteriod" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +31,7 @@
             android:id="@+id/description_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{AsteriodObj.close_approach_data.get(0).close_approach_date}"
+            android:text="@{AsteriodObj.close_approach_data}"
             android:textColor="@color/default_text_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/help_image_view"

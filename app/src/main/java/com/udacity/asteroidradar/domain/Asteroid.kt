@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Asteroid(
-    @Json(name = "asteroid_id")
+    @Json(name = "id")
     val id: Long,
     @Json(name = "name")
     val name: String,
@@ -20,7 +20,10 @@ data class Asteroid(
     val estimated_diameter: EstimatedDiameter,
     @Json(name = "is_potentially_hazardous_asteroid")
     val is_potentially_hazardous_asteroid: Boolean
-) : Parcelable
+) : Parcelable{
+    val closeApproachDate: String
+        get() = close_approach_data.get(0).close_approach_date
+}
 
 
 @Parcelize

@@ -9,17 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.databinding.FragmentListItemBinding
 import com.udacity.asteroidradar.domain.Asteroid
+import com.udacity.asteroidradar.domain.DomainAsteriod
 
 class AsteriodAdapter(val onClickListener: OnClickListener) :
-    ListAdapter<Asteroid, AsteriodAdapter.AsteriodViewHolder>(callBackDiff()) {
+    ListAdapter<DomainAsteriod, AsteriodAdapter.AsteriodViewHolder>(callBackDiff()) {
 
     class AsteriodViewHolder(val binding: FragmentListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(asteroid: Asteroid) {
+        fun bind(asteroid: DomainAsteriod) {
             binding.asteriodObj = asteroid
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AsteriodViewHolder {
@@ -35,19 +34,19 @@ class AsteriodAdapter(val onClickListener: OnClickListener) :
         holder.bind(getItem(position))
     }
 
-    class callBackDiff : DiffUtil.ItemCallback<Asteroid>() {
-        override fun areItemsTheSame(oldItem: Asteroid, newItem: Asteroid): Boolean {
+    class callBackDiff : DiffUtil.ItemCallback<DomainAsteriod>() {
+        override fun areItemsTheSame(oldItem: DomainAsteriod, newItem: DomainAsteriod): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Asteroid, newItem: Asteroid): Boolean {
+        override fun areContentsTheSame(oldItem: DomainAsteriod, newItem: DomainAsteriod): Boolean {
             return oldItem == newItem
         }
 
     }
 
-    class OnClickListener(val clickListener: (asteroid: Asteroid) -> Unit) {
-        fun onClick(asteroid: Asteroid) = clickListener(asteroid)
+    class OnClickListener(val clickListener: (asteroid: DomainAsteriod) -> Unit) {
+        fun onClick(asteroid: DomainAsteriod) = clickListener(asteroid)
     }
 
 }
