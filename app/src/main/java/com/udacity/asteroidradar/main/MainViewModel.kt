@@ -1,11 +1,9 @@
 package com.udacity.asteroidradar.main
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.udacity.asteroidradar.Constants.API_KEY
+import com.udacity.asteroidradar.DateUtil.currentDate
 import com.udacity.asteroidradar.Network.NasaApi
 import com.udacity.asteroidradar.Network.parseAsteriodResponseToList
 import com.udacity.asteroidradar.domain.Asteroid
@@ -15,6 +13,12 @@ import kotlinx.coroutines.launch
 import java.io.IOException
 
 class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
+
+    private val _asteriodList = MutableLiveData<List<DomainAsteriod>>()
+
+    // The external immutable LiveData for the request status String
+    val asteriodList: LiveData<List<DomainAsteriod>>
+        get() = _asteriodList
 
 
     // The internal MutableLiveData String that stores the status of the most recent request
@@ -39,10 +43,15 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         _statusNavigation.value = null
     }
 
-    val asteriodList = mainViewRepository.getAllAsteriodList()
-    fun showAll() {
-        Log.i("yarab", asteriodList.toString())
+
+    //mainViewRepository.getTodayAsteriodList()
+    fun filterAsteriod(value: String) {
+        viewModelScope.launch {
+            _asteriodList.value = mainViewRepository.callAsteriodbyFilter(value)
+            Log.i("yarab", asteriodList.value.toString())
+        }
     }
+
 
     private fun getAllAsteroid() {
         try {

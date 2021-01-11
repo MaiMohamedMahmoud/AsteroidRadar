@@ -8,6 +8,7 @@ import com.udacity.asteroidradar.domain.EstimatedDiameter
 
 class Entity {
 
+
     @Entity(tableName = "Asteroid")
     data class DBAsteroid(
         @PrimaryKey(autoGenerate = true)
