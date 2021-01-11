@@ -1,9 +1,12 @@
 package com.udacity.asteroidradar.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.map
 import com.udacity.asteroidradar.Constants.API_KEY
+import com.udacity.asteroidradar.Constants.DEFAULT_END_DATE_DAYS
+import com.udacity.asteroidradar.DateUtil.currentDate
 import com.udacity.asteroidradar.Network.NasaApi
 import com.udacity.asteroidradar.Network.parseAsteriodResponseToList
 import com.udacity.asteroidradar.database.AsteriodDAO
@@ -21,14 +24,56 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
     suspend fun refreshDatabase() {
         withContext(Dispatchers.IO) {
             val responseObj =
-                NasaApi.nasaService.getAsteroids("2021-01-01", "2021-01-06", API_KEY)
+                NasaApi.nasaService.getAsteroids(
+                    currentDate(),
+                    currentDate(DEFAULT_END_DATE_DAYS),
+                    API_KEY
+                )
             val list = parseAsteriodResponseToList(responseObj.near_earth_objects)
             asteriodDAO.insertAsteriod(* convertToDatabaseObject(list))
         }
     }
 
-    fun getAllAsteriodList(): LiveData<List<DomainAsteriod>> {
-        return convertDBObjectToDomain(asteriodDAO.getAllAsteriod().asLiveData())
+    suspend fun getAllAsteriodList(): List<DomainAsteriod> {
+        return convertDBObjectToDomain(
+            withContext(Dispatchers.IO) {
+                asteriodDAO.getAllAsteriod(
+                    currentDate(),
+                    currentDate(DEFAULT_END_DATE_DAYS)
+                )
+            }
+
+        )
+    }
+
+    suspend fun getSavedAsteriodList(): List<DomainAsteriod> {
+        return convertDBObjectToDomain(
+            withContext(Dispatchers.IO) { asteriodDAO.getSavedAsteriod() }
+        )
+    }
+
+    suspend fun getTodayAsteriodList(): List<DomainAsteriod> {
+        return convertDBObjectToDomain(
+            withContext(Dispatchers.IO) {
+                asteriodDAO.getTodayAsteriod(
+                    currentDate()
+                )
+            }
+        )
+    }
+
+    suspend fun callAsteriodbyFilter(value: String): List<DomainAsteriod> {
+        if (value == "week") {
+            Log.i("yarab", "week")
+            return getAllAsteriodList()
+
+        } else if (value == "today") {
+            Log.i("yarab", "today")
+            return getTodayAsteriodList()
+        } else
+            Log.i("yarab", "saved")
+        return getSavedAsteriodList()
+
     }
 
 }
