@@ -1,20 +1,17 @@
 package com.udacity.asteroidradar.main
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.map
 import com.udacity.asteroidradar.Constants.API_KEY
 import com.udacity.asteroidradar.Constants.DEFAULT_END_DATE_DAYS
 import com.udacity.asteroidradar.DateUtil.currentDate
+import com.udacity.asteroidradar.Network.AsteriodRemoteDataSource
 import com.udacity.asteroidradar.Network.NasaApi
 import com.udacity.asteroidradar.Network.parseAsteriodResponseToList
 import com.udacity.asteroidradar.database.AsteriodDAO
-import com.udacity.asteroidradar.database.Entity
-import com.udacity.asteroidradar.domain.Asteroid
 import com.udacity.asteroidradar.domain.DomainAsteriod
 import com.udacity.asteroidradar.domain.convertDBObjectToDomain
 import com.udacity.asteroidradar.domain.convertToDatabaseObject
+import com.udacity.asteroidradar.performGetOperation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
@@ -29,8 +26,11 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
                     currentDate(DEFAULT_END_DATE_DAYS),
                     API_KEY
                 )
-            val list = parseAsteriodResponseToList(responseObj.near_earth_objects)
-            asteriodDAO.insertAsteriod(* convertToDatabaseObject(list))
+            val list =
+                responseObj.body()?.near_earth_objects?.let { parseAsteriodResponseToList(it) }
+            //if list is not null then call fun convertToDatabaseObject and if this fun return is not null then insert it in the db ..
+            //same as this asteriodDAO.insertAsteriod(* convertToDatabaseObject(list))
+            list?.let { convertToDatabaseObject(it) }?.let { asteriodDAO.insertAsteriod(* it) }
         }
     }
 
@@ -63,17 +63,32 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
     }
 
     suspend fun callAsteriodbyFilter(value: String): List<DomainAsteriod> {
-        if (value == "week") {
-            Log.i("yarab", "week")
-            return getAllAsteriodList()
+        when (value) {
+            "week" -> {
+                Log.i("yarab", "week")
+                return getAllAsteriodList()
 
-        } else if (value == "today") {
-            Log.i("yarab", "today")
-            return getTodayAsteriodList()
-        } else
-            Log.i("yarab", "saved")
+            }
+            "today" -> {
+                Log.i("yarab", "today")
+                return getTodayAsteriodList()
+            }
+            else -> Log.i("yarab", "saved")
+        }
         return getSavedAsteriodList()
 
     }
+
+
+//    fun getCharacters() = performGetOperation(
+//        databaseQuery = {
+//            convertDBObjectToDomain(asteriodDAO.getAllAsteriod(
+//                currentDate(),
+//                currentDate(DEFAULT_END_DATE_DAYS)
+//            ))
+//        },
+//        networkCall = { AsteriodRemoteDataSource().getAsteroids() },
+//        saveCallResult = { asteriodDAO.insertAsteriod(it.results) }
+//    )
 
 }

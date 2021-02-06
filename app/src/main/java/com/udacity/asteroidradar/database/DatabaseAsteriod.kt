@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase
     version = 1,
     exportSchema = false
 )
-abstract class DatabaseAsteriod() : RoomDatabase() {
+abstract class DatabaseAsteriod : RoomDatabase() {
     /**
      * first we need to get handel of the function inside our TaskDao interface
      * so define this fun
