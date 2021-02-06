@@ -2,7 +2,7 @@ package com.udacity.asteroidradar.domain
 
 import com.squareup.moshi.Json
 
-data class Response(
+data class UrlResponse(
     @Json(name = "links")
     val links: links,
     @Json(name = "element_count")

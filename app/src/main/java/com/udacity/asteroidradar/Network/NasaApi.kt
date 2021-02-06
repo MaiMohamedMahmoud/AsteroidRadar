@@ -7,7 +7,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 /**
  * retrofit need 2 things in order to work :
  * 1- Base Url
- * 2- Converter factory which is here Scalars...
+ * 2- Converter factory which is here Moshi...
  */
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create())

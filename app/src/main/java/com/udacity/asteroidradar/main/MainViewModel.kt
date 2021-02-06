@@ -68,7 +68,7 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
             viewModelScope.launch {
                 val imageObj = NasaApi.nasaService.getPictureOfDay(API_KEY)
                 Log.i("model", imageObj.toString())
-                _pictureOfDay.value = imageObj
+                _pictureOfDay.value = imageObj.body()
             }
         } catch (networkError: IOException) {
             // Show a Toast error message and hide the progress bar.
