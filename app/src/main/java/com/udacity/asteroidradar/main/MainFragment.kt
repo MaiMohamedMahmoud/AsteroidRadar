@@ -52,7 +52,7 @@ class MainFragment : Fragment() {
 
         viewModel.asteriodList.observe(viewLifecycleOwner, Observer {
             Log.i("yarab", it.toString())
-            adapter.submitList(it)
+            adapter.submitList(it.data)
         })
         viewModel.pictureOfDay.observe(viewLifecycleOwner, Observer {
 

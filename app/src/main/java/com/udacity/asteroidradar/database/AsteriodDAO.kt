@@ -14,16 +14,21 @@ interface AsteriodDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAsteriod(vararg asteroid: Entity.DBAsteroid)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(asteriods: List<Entity.DBAsteroid>)
 
     @Query("SELECT * From Asteroid Order By close_approach_data ASC")
-    suspend fun getSavedAsteriod(): List<Entity.DBAsteroid>
+    fun getSavedAsteriod(): LiveData<List<Entity.DBAsteroid>>
 
     @Query("SELECT * From Asteroid where close_approach_data = :currentDate ")
-    suspend fun getTodayAsteriod(currentDate: String): List<Entity.DBAsteroid>
+    fun getTodayAsteriod(currentDate: String): LiveData<List<Entity.DBAsteroid>>
 
 
     @Query("SELECT * From Asteroid where close_approach_data between :startDate And :endDate Order By close_approach_data ASC")
-    suspend fun getAllAsteriod(startDate: String, endDate: String): List<Entity.DBAsteroid>
+    fun getAllAsteriod(
+        startDate: String,
+        endDate: String
+    ): LiveData<List<Entity.DBAsteroid>>
 
     @Query("SELECT * From dayPicture")
     fun getPic(): Flow<Entity.DBPictureOfDay>
