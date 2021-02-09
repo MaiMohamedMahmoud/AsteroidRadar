@@ -2,6 +2,7 @@ package com.udacity.asteroidradar.main
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.udacity.asteroidradar.Constants.API_KEY
 import com.udacity.asteroidradar.Constants.DEFAULT_END_DATE_DAYS
@@ -14,12 +15,14 @@ import com.udacity.asteroidradar.database.AsteriodDAO
 import com.udacity.asteroidradar.domain.DomainAsteriod
 import com.udacity.asteroidradar.domain.asDatabaseModel
 import com.udacity.asteroidradar.domain.asDomainModel
+import com.udacity.asteroidradar.performDataBaseOperation
 import com.udacity.asteroidradar.performGetOperation
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 
+
 class MainViewRepository(val asteriodDAO: AsteriodDAO) {
+
 
     suspend fun refreshDatabase() {
         withContext(Dispatchers.IO) {
@@ -39,15 +42,21 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
         }
     }
 
-    fun getAllAsteriodList(): LiveData<List<DomainAsteriod>> =
-        Transformations.map(
+
+    fun getAllAsteroid(): LiveData<Resource<List<DomainAsteriod>>> {
+        Log.i("yarab", "inside All")
+
+        return Transformations.map(
             asteriodDAO.getAllAsteriod(
                 currentDate(),
                 currentDate(DEFAULT_END_DATE_DAYS)
             )
         ) {
-            it.asDomainModel()
+
+            Log.i("yarab", "" + it.asDomainModel().size)
+            Resource.success(it.asDomainModel())
         }
+    }
 
 
     fun getSavedAsteriodList(): LiveData<Resource<List<DomainAsteriod>>> =
@@ -55,13 +64,13 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
             Resource.success(it.asDomainModel())
         }
 
-
-    fun getTodayAsteriodList(): LiveData<Resource<List<DomainAsteriod>>> =
+    fun today(): LiveData<Resource<List<DomainAsteriod>>> =
         Transformations.map(
             asteriodDAO.getTodayAsteriod(
                 currentDate()
             )
         ) {
+            Log.i("yarab", "inside tody fun")
             Resource.success(it.asDomainModel())
 
         }
@@ -71,19 +80,32 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
         when (value) {
             "week" -> {
                 Log.i("yarab", "week")
-                return getAsteriods()
-
+                return getAllAsteroid()
             }
             "today" -> {
                 Log.i("yarab", "today")
-                return getTodayAsteriodList()
+                return today()
             }
-            else ->  Log.i("yarab", "saved")
+            else -> Log.i("yarab", "saved")
         }
         return getSavedAsteriodList()
 
     }
 
+
+    fun getTodaylist() = performDataBaseOperation(
+        databaseQuery = {
+            Transformations.map(
+                asteriodDAO.getTodayAsteriod(
+                    currentDate()
+                )
+            ) {
+                Log.i("yarab", "inside tody fun")
+                it.asDomainModel()
+
+            }
+        }
+    )
 
     fun getAsteriods() = performGetOperation(
         databaseQuery = {

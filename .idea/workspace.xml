@@ -118,11 +118,18 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/DataAccessStrategy.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/DataAccessStrategy.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/Network/AsteriodRemoteDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/Network/AsteriodRemoteDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/Network/BaseDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/Network/BaseDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/Network/NetworkUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/Network/NetworkUtils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/database/AsteriodDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/database/AsteriodDAO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/domain/TranseferObject.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/domain/TranseferObject.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewRepository.kt" afterDir="false" />
@@ -318,9 +325,11 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="411" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1609529131110">
-      <screen x="0" y="23" width="1280" height="734" />
+    <state x="411" y="109" key="#com.intellij.ide.util.MemberChooser" timestamp="1612831813218">
+      <screen x="0" y="23" width="1280" height="728" />
     </state>
+    <state x="411" y="109" key="#com.intellij.ide.util.MemberChooser/0.23.1280.727@0.23.1280.727" timestamp="1612828908360" />
+    <state x="411" y="109" key="#com.intellij.ide.util.MemberChooser/0.23.1280.728@0.23.1280.728" timestamp="1612831813218" />
     <state x="411" y="110" key="#com.intellij.ide.util.MemberChooser/0.23.1280.734@0.23.1280.734" timestamp="1609529131110" />
     <state x="377" y="184" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1610225882840">
       <screen x="0" y="23" width="1280" height="733" />
@@ -338,33 +347,51 @@
       <screen x="0" y="23" width="1280" height="732" />
     </state>
     <state x="463" y="350" key="AndroidCreateXmlResourceDialog/0.23.1280.732@0.23.1280.732" timestamp="1609621160086" />
-    <state width="1201" height="150" key="GridCell.Tab.0.bottom" timestamp="1612665218083">
-      <screen x="0" y="23" width="1280" height="730" />
+    <state width="1201" height="-40" key="GridCell.Tab.0.bottom" timestamp="1612834346550">
+      <screen x="0" y="23" width="1280" height="728" />
     </state>
-    <state width="1201" height="150" key="GridCell.Tab.0.bottom/0.23.1280.730@0.23.1280.730" timestamp="1612665218083" />
+    <state width="1201" height="199" key="GridCell.Tab.0.bottom/0.23.1280.727@0.23.1280.727" timestamp="1612826660110" />
+    <state width="1201" height="-40" key="GridCell.Tab.0.bottom/0.23.1280.728@0.23.1280.728" timestamp="1612834346550" />
+    <state width="1201" height="513" key="GridCell.Tab.0.bottom/0.23.1280.729@0.23.1280.729" timestamp="1612820728498" />
+    <state width="1201" height="399" key="GridCell.Tab.0.bottom/0.23.1280.730@0.23.1280.730" timestamp="1612781233027" />
     <state width="1238" height="437" key="GridCell.Tab.0.bottom/0.23.1280.733@0.23.1280.733" timestamp="1610361461050" />
     <state width="1238" height="89" key="GridCell.Tab.0.bottom/0.23.1280.734@0.23.1280.734" timestamp="1610232310657" />
-    <state width="1201" height="150" key="GridCell.Tab.0.center" timestamp="1612665218082">
-      <screen x="0" y="23" width="1280" height="730" />
+    <state width="1201" height="-40" key="GridCell.Tab.0.center" timestamp="1612834346550">
+      <screen x="0" y="23" width="1280" height="728" />
     </state>
-    <state width="1201" height="150" key="GridCell.Tab.0.center/0.23.1280.730@0.23.1280.730" timestamp="1612665218082" />
+    <state width="1201" height="199" key="GridCell.Tab.0.center/0.23.1280.727@0.23.1280.727" timestamp="1612826660109" />
+    <state width="1201" height="-40" key="GridCell.Tab.0.center/0.23.1280.728@0.23.1280.728" timestamp="1612834346550" />
+    <state width="1201" height="513" key="GridCell.Tab.0.center/0.23.1280.729@0.23.1280.729" timestamp="1612820728497" />
+    <state width="1201" height="399" key="GridCell.Tab.0.center/0.23.1280.730@0.23.1280.730" timestamp="1612781233026" />
     <state width="1238" height="437" key="GridCell.Tab.0.center/0.23.1280.733@0.23.1280.733" timestamp="1610361461049" />
     <state width="1238" height="89" key="GridCell.Tab.0.center/0.23.1280.734@0.23.1280.734" timestamp="1610232310656" />
-    <state width="1201" height="150" key="GridCell.Tab.0.left" timestamp="1612665218081">
-      <screen x="0" y="23" width="1280" height="730" />
+    <state width="1201" height="-40" key="GridCell.Tab.0.left" timestamp="1612834346549">
+      <screen x="0" y="23" width="1280" height="728" />
     </state>
-    <state width="1201" height="150" key="GridCell.Tab.0.left/0.23.1280.730@0.23.1280.730" timestamp="1612665218081" />
+    <state width="1201" height="199" key="GridCell.Tab.0.left/0.23.1280.727@0.23.1280.727" timestamp="1612826660108" />
+    <state width="1201" height="-40" key="GridCell.Tab.0.left/0.23.1280.728@0.23.1280.728" timestamp="1612834346549" />
+    <state width="1201" height="513" key="GridCell.Tab.0.left/0.23.1280.729@0.23.1280.729" timestamp="1612820728492" />
+    <state width="1201" height="399" key="GridCell.Tab.0.left/0.23.1280.730@0.23.1280.730" timestamp="1612781233025" />
     <state width="1238" height="437" key="GridCell.Tab.0.left/0.23.1280.733@0.23.1280.733" timestamp="1610361461049" />
     <state width="1238" height="89" key="GridCell.Tab.0.left/0.23.1280.734@0.23.1280.734" timestamp="1610232310655" />
-    <state width="1201" height="150" key="GridCell.Tab.0.right" timestamp="1612665218083">
-      <screen x="0" y="23" width="1280" height="730" />
+    <state width="1201" height="-40" key="GridCell.Tab.0.right" timestamp="1612834346550">
+      <screen x="0" y="23" width="1280" height="728" />
     </state>
-    <state width="1201" height="150" key="GridCell.Tab.0.right/0.23.1280.730@0.23.1280.730" timestamp="1612665218083" />
+    <state width="1201" height="199" key="GridCell.Tab.0.right/0.23.1280.727@0.23.1280.727" timestamp="1612826660109" />
+    <state width="1201" height="-40" key="GridCell.Tab.0.right/0.23.1280.728@0.23.1280.728" timestamp="1612834346550" />
+    <state width="1201" height="513" key="GridCell.Tab.0.right/0.23.1280.729@0.23.1280.729" timestamp="1612820728497" />
+    <state width="1201" height="399" key="GridCell.Tab.0.right/0.23.1280.730@0.23.1280.730" timestamp="1612781233026" />
     <state width="1238" height="437" key="GridCell.Tab.0.right/0.23.1280.733@0.23.1280.733" timestamp="1610361461050" />
     <state width="1238" height="89" key="GridCell.Tab.0.right/0.23.1280.734@0.23.1280.734" timestamp="1610232310657" />
-    <state x="354" y="262" width="732" height="490" key="find.popup" timestamp="1612557511553">
-      <screen x="0" y="23" width="1280" height="729" />
+    <state x="126" y="127" width="1043" height="528" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1612742619059">
+      <screen x="0" y="23" width="1280" height="730" />
     </state>
+    <state x="126" y="127" width="1043" height="528" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1280.730@0.23.1280.730" timestamp="1612742619059" />
+    <state x="126" y="127" width="1043" height="528" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1280.731@0.23.1280.731" timestamp="1612731116147" />
+    <state x="354" y="260" width="732" height="490" key="find.popup" timestamp="1612823807843">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state x="354" y="260" width="732" height="490" key="find.popup/0.23.1280.727@0.23.1280.727" timestamp="1612823807843" />
     <state x="354" y="262" width="732" height="490" key="find.popup/0.23.1280.729@0.23.1280.729" timestamp="1612557511553" />
     <state x="341" y="142" width="598" height="490" key="find.popup/0.23.1280.734@0.23.1280.734" timestamp="1609462605150" />
     <state x="341" y="142" width="732" height="493" key="find.popup/0.23.1280.737@0.23.1280.737" timestamp="1609983366301" />
