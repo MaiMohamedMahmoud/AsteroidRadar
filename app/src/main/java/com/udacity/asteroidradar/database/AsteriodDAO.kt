@@ -17,7 +17,7 @@ interface AsteriodDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(asteriods: List<Entity.DBAsteroid>)
 
-    @Query("SELECT * From Asteroid Order By close_approach_data ASC")
+    @Query("SELECT * From Asteroid ")
     fun getSavedAsteriod(): LiveData<List<Entity.DBAsteroid>>
 
     @Query("SELECT * From Asteroid where close_approach_data = :currentDate ")

@@ -3,7 +3,7 @@ package com.udacity.asteroidradar.Network
 import com.udacity.asteroidradar.Constants
 import com.udacity.asteroidradar.DateUtil
 
-class AsteriodRemoteDataSource() : BaseDataSource() {
+class AsteriodRemoteDataSource : BaseDataSource() {
 
     suspend fun getAsteroids() = getResult {
         NasaApi.nasaService.getAsteroids(

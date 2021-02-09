@@ -15,13 +15,10 @@ import java.io.IOException
 
 class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
 
-/*
-    private val _asteriodList = MutableLiveData<Resource<List<DomainAsteriod>>>()
 
-    // The external immutable LiveData for the request status String
-    val asteriodList: LiveData<Resource<List<DomainAsteriod>>>
-        get() = _asteriodList
-*/
+    private val _asteroidList = MutableLiveData<Resource<List<DomainAsteriod>>>()
+
+    lateinit var list: LiveData<Resource<List<DomainAsteriod>>>
 
     // The internal MutableLiveData String that stores the status of the most recent request
     private val _pictureOfDay = MutableLiveData<PictureOfDay>()
@@ -41,33 +38,31 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         getImageDay()
         _statusNavigation.value = null
     }
-//
-//
-//    //mainViewRepository.getTodayAsteriodList()
-//    fun filterAsteriod(value: String) {
+
+//    private fun refreshDataNetwork() {
 //        viewModelScope.launch {
-//            _asteriodList.value = mainViewRepository.callAsteriodbyFilter(value)
-//            Log.i("yarab", asteriodList.value.toString())
+//            filterAsteroid("week")
+//            mainViewRepository.refreshDatabase()
 //        }
 //    }
-//
-//
-//    private fun getAllAsteroid() {
+    //    fun filterAsteroid(value: String) {
 //        try {
 //            viewModelScope.launch {
-//                mainViewRepository.refreshDatabase()
+//                val list = mainViewRepository.callAsteriodbyFilter(value)
+//                Log.i("yarab", "list " + list.value)
+//                _asteroidList.value = list.value
 //            }
 //        } catch (networkError: IOException) {
-////            // Show a Toast error message and hide the progress bar.
+//            // Show a Toast error message and hide the progress bar.
 //        }
 //    }
-//
 
+    var asteroidList = mainViewRepository.callAsteriodbyFilter("week")
 
-    val asteriodList = mainViewRepository.getAsteriods()
-    fun filterAsteriod(value: String) {
-        val asteriodList = mainViewRepository.callAsteriodbyFilter(value)
-        Log.i("yarab filter", asteriodList.value.toString())
+    fun filterAsteroid(value: String): LiveData<Resource<List<DomainAsteriod>>> {
+
+        asteroidList = mainViewRepository.callAsteriodbyFilter(value)
+        return asteroidList
     }
 
     private fun getImageDay() {
@@ -82,8 +77,8 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         }
     }
 
-    fun setNavigation(asteriod: DomainAsteriod) {
-        _statusNavigation.value = asteriod
+    fun setNavigation(asteroid: DomainAsteriod) {
+        _statusNavigation.value = asteroid
     }
 
     fun clearStatusNavigation() {

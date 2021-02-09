@@ -1,5 +1,6 @@
 package com.udacity.asteroidradar.Network
 
+import android.util.Log
 import com.udacity.asteroidradar.domain.Asteroid
 import com.udacity.asteroidradar.Constants
 import org.json.JSONObject
@@ -49,6 +50,7 @@ fun parseAsteriodResponseToList(response: Map<String, List<Asteroid>>): List<Ast
     response.forEach { (k: Any?, v: Any?) ->
         listOfAsteroid.addAll(v)
     }
+    Log.i("yarab", "size " + listOfAsteroid.size + " list" + listOfAsteroid)
     return listOfAsteroid
 }
 
