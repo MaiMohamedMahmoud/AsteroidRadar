@@ -35,29 +35,11 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         get() = _statusNavigation
 
     init {
-        getImageDay()
+        //getImageDay()
         _statusNavigation.value = null
     }
 
-//    private fun refreshDataNetwork() {
-//        viewModelScope.launch {
-//            filterAsteroid("week")
-//            mainViewRepository.refreshDatabase()
-//        }
-//    }
-    //    fun filterAsteroid(value: String) {
-//        try {
-//            viewModelScope.launch {
-//                val list = mainViewRepository.callAsteriodbyFilter(value)
-//                Log.i("yarab", "list " + list.value)
-//                _asteroidList.value = list.value
-//            }
-//        } catch (networkError: IOException) {
-//            // Show a Toast error message and hide the progress bar.
-//        }
-//    }
-
-    var asteroidList = mainViewRepository.callAsteriodbyFilter("week")
+    var asteroidList = mainViewRepository.getAsteriods()
 
     fun filterAsteroid(value: String): LiveData<Resource<List<DomainAsteriod>>> {
 
@@ -84,6 +66,4 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
     fun clearStatusNavigation() {
         _statusNavigation.value = null
     }
-
-
 }
