@@ -35,7 +35,7 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         get() = _statusNavigation
 
     init {
-        //getImageDay()
+        getImageDay()
         _statusNavigation.value = null
     }
 

@@ -112,19 +112,7 @@
       <change beforePath="$PROJECT_DIR$/../../android-architecture-course-master/.idea/codeStyles/Project.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../android-architecture-course-master/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ingredisearch-starter/app/src/main/java/com/raywenderlich/ingredisearch/SearchPresenter.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ud851-Exercises-student/Lesson06-Visualizer-Preferences/T06.01-Exercise-SetupTheActivity/app/src/main/java/android/example/com/visualizerpreferences/SettingActivity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ud851-Exercises-student/Lesson06-Visualizer-Preferences/T06.01-Exercise-SetupTheActivity/app/src/main/res/layout/activity_setting.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ud851-Exercises-student/Lesson06-Visualizer-Preferences/T06.01-Exercise-SetupTheActivity/app/src/main/res/menu/visulizer_menu.xml" beforeDir="false" />
@@ -339,37 +327,37 @@
       <screen x="0" y="23" width="1280" height="732" />
     </state>
     <state x="463" y="350" key="AndroidCreateXmlResourceDialog/0.23.1280.732@0.23.1280.732" timestamp="1609621160086" />
-    <state width="1201" height="252" key="GridCell.Tab.0.bottom" timestamp="1612890792875">
-      <screen x="0" y="23" width="1280" height="728" />
+    <state width="1201" height="232" key="GridCell.Tab.0.bottom" timestamp="1613426103819">
+      <screen x="0" y="23" width="1280" height="727" />
     </state>
-    <state width="1201" height="199" key="GridCell.Tab.0.bottom/0.23.1280.727@0.23.1280.727" timestamp="1612826660110" />
+    <state width="1201" height="232" key="GridCell.Tab.0.bottom/0.23.1280.727@0.23.1280.727" timestamp="1613426103819" />
     <state width="1201" height="252" key="GridCell.Tab.0.bottom/0.23.1280.728@0.23.1280.728" timestamp="1612890792875" />
     <state width="1201" height="513" key="GridCell.Tab.0.bottom/0.23.1280.729@0.23.1280.729" timestamp="1612820728498" />
     <state width="1201" height="399" key="GridCell.Tab.0.bottom/0.23.1280.730@0.23.1280.730" timestamp="1612781233027" />
     <state width="1238" height="437" key="GridCell.Tab.0.bottom/0.23.1280.733@0.23.1280.733" timestamp="1610361461050" />
     <state width="1238" height="89" key="GridCell.Tab.0.bottom/0.23.1280.734@0.23.1280.734" timestamp="1610232310657" />
-    <state width="1201" height="252" key="GridCell.Tab.0.center" timestamp="1612890792872">
-      <screen x="0" y="23" width="1280" height="728" />
+    <state width="1201" height="232" key="GridCell.Tab.0.center" timestamp="1613426103818">
+      <screen x="0" y="23" width="1280" height="727" />
     </state>
-    <state width="1201" height="199" key="GridCell.Tab.0.center/0.23.1280.727@0.23.1280.727" timestamp="1612826660109" />
+    <state width="1201" height="232" key="GridCell.Tab.0.center/0.23.1280.727@0.23.1280.727" timestamp="1613426103818" />
     <state width="1201" height="252" key="GridCell.Tab.0.center/0.23.1280.728@0.23.1280.728" timestamp="1612890792872" />
     <state width="1201" height="513" key="GridCell.Tab.0.center/0.23.1280.729@0.23.1280.729" timestamp="1612820728497" />
     <state width="1201" height="399" key="GridCell.Tab.0.center/0.23.1280.730@0.23.1280.730" timestamp="1612781233026" />
     <state width="1238" height="437" key="GridCell.Tab.0.center/0.23.1280.733@0.23.1280.733" timestamp="1610361461049" />
     <state width="1238" height="89" key="GridCell.Tab.0.center/0.23.1280.734@0.23.1280.734" timestamp="1610232310656" />
-    <state width="1201" height="252" key="GridCell.Tab.0.left" timestamp="1612890792865">
-      <screen x="0" y="23" width="1280" height="728" />
+    <state width="1201" height="232" key="GridCell.Tab.0.left" timestamp="1613426103810">
+      <screen x="0" y="23" width="1280" height="727" />
     </state>
-    <state width="1201" height="199" key="GridCell.Tab.0.left/0.23.1280.727@0.23.1280.727" timestamp="1612826660108" />
+    <state width="1201" height="232" key="GridCell.Tab.0.left/0.23.1280.727@0.23.1280.727" timestamp="1613426103810" />
     <state width="1201" height="252" key="GridCell.Tab.0.left/0.23.1280.728@0.23.1280.728" timestamp="1612890792864" />
     <state width="1201" height="513" key="GridCell.Tab.0.left/0.23.1280.729@0.23.1280.729" timestamp="1612820728492" />
     <state width="1201" height="399" key="GridCell.Tab.0.left/0.23.1280.730@0.23.1280.730" timestamp="1612781233025" />
     <state width="1238" height="437" key="GridCell.Tab.0.left/0.23.1280.733@0.23.1280.733" timestamp="1610361461049" />
     <state width="1238" height="89" key="GridCell.Tab.0.left/0.23.1280.734@0.23.1280.734" timestamp="1610232310655" />
-    <state width="1201" height="252" key="GridCell.Tab.0.right" timestamp="1612890792874">
-      <screen x="0" y="23" width="1280" height="728" />
+    <state width="1201" height="232" key="GridCell.Tab.0.right" timestamp="1613426103819">
+      <screen x="0" y="23" width="1280" height="727" />
     </state>
-    <state width="1201" height="199" key="GridCell.Tab.0.right/0.23.1280.727@0.23.1280.727" timestamp="1612826660109" />
+    <state width="1201" height="232" key="GridCell.Tab.0.right/0.23.1280.727@0.23.1280.727" timestamp="1613426103819" />
     <state width="1201" height="252" key="GridCell.Tab.0.right/0.23.1280.728@0.23.1280.728" timestamp="1612890792874" />
     <state width="1201" height="513" key="GridCell.Tab.0.right/0.23.1280.729@0.23.1280.729" timestamp="1612820728497" />
     <state width="1201" height="399" key="GridCell.Tab.0.right/0.23.1280.730@0.23.1280.730" timestamp="1612781233026" />
