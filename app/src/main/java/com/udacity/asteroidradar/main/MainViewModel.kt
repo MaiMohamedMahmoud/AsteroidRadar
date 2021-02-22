@@ -51,7 +51,6 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         try {
             viewModelScope.launch {
                 val imageObj = NasaApi.nasaService.getPictureOfDay(API_KEY)
-                Log.i("model", imageObj.toString())
                 _pictureOfDay.value = imageObj.body()
             }
         } catch (networkError: IOException) {
