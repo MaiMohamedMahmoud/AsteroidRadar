@@ -20,12 +20,12 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
 
     lateinit var list: LiveData<Resource<List<DomainAsteriod>>>
 
-    // The internal MutableLiveData String that stores the status of the most recent request
-    private val _pictureOfDay = MutableLiveData<PictureOfDay>()
-
-    // The external immutable LiveData for the request status String
-    val pictureOfDay: LiveData<PictureOfDay>
-        get() = _pictureOfDay
+//    // The internal MutableLiveData String that stores the status of the most recent request
+//    private val _pictureOfDay = MutableLiveData<PictureOfDay>()
+//
+//    // The external immutable LiveData for the request status String
+//    val pictureOfDay: LiveData<PictureOfDay>
+//        get() = _pictureOfDay
 
     //status for navigation
     private val _statusNavigation = MutableLiveData<DomainAsteriod>()
@@ -35,7 +35,7 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         get() = _statusNavigation
 
     init {
-        getImageDay()
+        //getImage()
         _statusNavigation.value = null
     }
 
@@ -47,16 +47,18 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         return asteroidList
     }
 
-    private fun getImageDay() {
-        try {
-            viewModelScope.launch {
-                val imageObj = NasaApi.nasaService.getPictureOfDay(API_KEY)
-                _pictureOfDay.value = imageObj.body()
-            }
-        } catch (networkError: IOException) {
-            // Show a Toast error message and hide the progress bar.
-        }
-    }
+    var pictureOfDay = mainViewRepository.getPictureOfDay()
+
+//    private fun getImageDay() {
+//        try {
+//            viewModelScope.launch {
+//                val imageObj = NasaApi.nasaService.getPictureOfDay(API_KEY)
+//                _pictureOfDay.value = imageObj.body()
+//            }
+//        } catch (networkError: IOException) {
+//            // Show a Toast error message and hide the progress bar.
+//        }
+//    }
 
     fun setNavigation(asteroid: DomainAsteriod) {
         _statusNavigation.value = asteroid

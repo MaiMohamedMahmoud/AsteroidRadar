@@ -15,7 +15,7 @@ class Entity {
         val id: Long,
         val name: String,
         val close_approach_data: String,
-        val relative_velocity:Double,
+        val relative_velocity: Double,
         val distanceFromEarth: Double,
         val absolute_magnitude_h: Double,
         val estimated_diameter: Double,
@@ -25,10 +25,9 @@ class Entity {
 
     @Entity(tableName = "DayPicture")
     data class DBPictureOfDay(
-        @PrimaryKey(autoGenerate = true)
-        val id: Long,
         val media_type: String,
         val title: String,
+        @PrimaryKey
         val url: String
     )
 }

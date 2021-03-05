@@ -1,7 +1,5 @@
 package com.udacity.asteroidradar.domain
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.map
 import com.udacity.asteroidradar.database.Entity
 
 fun List<Entity.DBAsteroid>.asDomainModel(): List<DomainAsteriod> {
@@ -34,6 +32,23 @@ fun List<Asteroid>.asDatabaseModel(): List<Entity.DBAsteroid> {
         )
     }
 }
+
+fun Entity.DBPictureOfDay.asDomainModel(): PictureOfDay {
+    return PictureOfDay(
+        media_type = media_type,
+        title = title,
+        url = url
+    )
+}
+
+fun PictureOfDay.asDatabaseModel(): Entity.DBPictureOfDay {
+    return Entity.DBPictureOfDay(
+        media_type = media_type,
+        title = title,
+        url = url
+    )
+}
+
 
 //    fun convertToDatabaseObject(list: List<Asteroid>): Array<Entity.DBAsteroid> {
 //        return list.map {

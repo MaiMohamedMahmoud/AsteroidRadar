@@ -18,6 +18,7 @@ import com.udacity.asteroidradar.Resource
 import com.udacity.asteroidradar.database.DatabaseAsteriod
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
 import com.udacity.asteroidradar.domain.DomainAsteriod
+import com.udacity.asteroidradar.domain.PictureOfDay
 
 class MainFragment : Fragment() {
 
@@ -36,7 +37,7 @@ class MainFragment : Fragment() {
         val binding = FragmentMainBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
-        binding.viewModel = viewModel
+        binding.pictureObj = viewModel.pictureOfDay.value as PictureOfDay?
 
         adapter = AsteriodAdapter(AsteriodAdapter.OnClickListener {
             viewModel.setNavigation(it)
