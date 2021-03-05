@@ -44,7 +44,8 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
     }
 
 
-    fun getAllAsteroid(): LiveData<Resource<List<DomainAsteriod>>> {
+    //get Week Asteroid from db....
+    fun getWeeklyAsteroid(): LiveData<Resource<List<DomainAsteriod>>> {
         Log.i("yarab", "inside All")
 
         return Transformations.map(
@@ -65,7 +66,7 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
             Resource.success(it.asDomainModel())
         }
 
-    fun today(): LiveData<Resource<List<DomainAsteriod>>> =
+    fun getTodayAsteroid(): LiveData<Resource<List<DomainAsteriod>>> =
         Transformations.map(
             asteriodDAO.getTodayAsteriod(
                 currentDate()
@@ -81,16 +82,14 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
         when (value) {
             "week" -> {
                 Log.i("yarab", "week")
-                return getAllAsteroid()
+                return getWeeklyAsteroid()
             }
             "today" -> {
                 Log.i("yarab", "today")
-                return today()
+                return getTodayAsteroid()
             }
-            else -> Log.i("yarab", "saved")
+            else -> return getSavedAsteriodList()
         }
-        return getSavedAsteriodList()
-
     }
 
 
@@ -125,5 +124,15 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
                 parseAsteriodResponseToList(it.near_earth_objects).asDatabaseModel()
             )
         }
+    )
+
+    fun getPictureOfDay() = performGetOperation(
+        databaseQuery = {
+            Transformations.map(asteriodDAO.getPic()) {
+                it.asDomainModel()
+            }
+        },
+        networkCall = { AsteriodRemoteDataSource().getPictureOfDay() },
+        saveCallResult = { asteriodDAO.insertPic(it.asDatabaseModel()) }
     )
 }
