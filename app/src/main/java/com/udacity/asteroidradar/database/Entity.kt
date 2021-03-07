@@ -25,9 +25,10 @@ class Entity {
 
     @Entity(tableName = "DayPicture")
     data class DBPictureOfDay(
+        @PrimaryKey
+        val date: String,
         val media_type: String,
         val title: String,
-        @PrimaryKey
         val url: String
     )
 }

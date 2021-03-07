@@ -3,6 +3,7 @@ package com.udacity.asteroidradar.domain
 import com.squareup.moshi.Json
 
 data class PictureOfDay(
+    val date: String,
     @Json(name = "media_type")
     val media_type: String,
     @Json(name = "title")
