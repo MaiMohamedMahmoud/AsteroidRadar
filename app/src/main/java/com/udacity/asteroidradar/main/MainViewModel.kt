@@ -10,6 +10,7 @@ import com.udacity.asteroidradar.Resource
 import com.udacity.asteroidradar.domain.Asteroid
 import com.udacity.asteroidradar.domain.DomainAsteriod
 import com.udacity.asteroidradar.domain.PictureOfDay
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 
@@ -20,13 +21,6 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
 
     lateinit var list: LiveData<Resource<List<DomainAsteriod>>>
 
-//    // The internal MutableLiveData String that stores the status of the most recent request
-//    private val _pictureOfDay = MutableLiveData<PictureOfDay>()
-//
-//    // The external immutable LiveData for the request status String
-//    val pictureOfDay: LiveData<PictureOfDay>
-//        get() = _pictureOfDay
-
     //status for navigation
     private val _statusNavigation = MutableLiveData<DomainAsteriod>()
 
@@ -35,30 +29,18 @@ class MainViewModel(val mainViewRepository: MainViewRepository) : ViewModel() {
         get() = _statusNavigation
 
     init {
-        //getImage()
         _statusNavigation.value = null
     }
 
-    var asteroidList = mainViewRepository.getAsteriods()
+    var asteroidList = mainViewRepository.getAsteroids()
 
     fun filterAsteroid(value: String): LiveData<Resource<List<DomainAsteriod>>> {
 
-        asteroidList = mainViewRepository.callAsteriodbyFilter(value)
+        asteroidList = mainViewRepository.callAsteroidByFilter(value)
         return asteroidList
     }
 
-    var pictureOfDay = mainViewRepository.getPictureOfDay()
-
-//    private fun getImageDay() {
-//        try {
-//            viewModelScope.launch {
-//                val imageObj = NasaApi.nasaService.getPictureOfDay(API_KEY)
-//                _pictureOfDay.value = imageObj.body()
-//            }
-//        } catch (networkError: IOException) {
-//            // Show a Toast error message and hide the progress bar.
-//        }
-//    }
+     var pictureOfDay = mainViewRepository.getPictureOfDay()
 
     fun setNavigation(asteroid: DomainAsteriod) {
         _statusNavigation.value = asteroid
