@@ -130,7 +130,7 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
     fun getPictureOfDay() = performGetOperation(
         databaseQuery = {
             Transformations.map(
-                asteriodDAO.getPic()
+                asteriodDAO.getPic(currentDate())
             ) {
                 it?.asDomainModel()
             }
