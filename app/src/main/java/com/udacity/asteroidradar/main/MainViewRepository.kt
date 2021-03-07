@@ -1,6 +1,7 @@
 package com.udacity.asteroidradar.main
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -78,7 +79,7 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
         }
 
 
-    fun callAsteriodbyFilter(value: String): LiveData<Resource<List<DomainAsteriod>>> {
+    fun callAsteroidByFilter(value: String): LiveData<Resource<List<DomainAsteriod>>> {
         when (value) {
             "week" -> {
                 Log.i("yarab", "week")
@@ -93,7 +94,7 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
     }
 
 
-    fun getTodaylist() = performDataBaseOperation(
+    fun getTodayList() = performDataBaseOperation(
         databaseQuery = {
             Transformations.map(
                 asteriodDAO.getTodayAsteriod(
@@ -107,7 +108,7 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
         }
     )
 
-    fun getAsteriods() = performGetOperation(
+    fun getAsteroids() = performGetOperation(
         databaseQuery = {
             Transformations.map(
                 asteriodDAO.getAllAsteriod(
@@ -128,11 +129,15 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
 
     fun getPictureOfDay() = performGetOperation(
         databaseQuery = {
-            Transformations.map(asteriodDAO.getPic()) {
-                it.asDomainModel()
+            Transformations.map(
+                asteriodDAO.getPic()
+            ) {
+                it?.asDomainModel()
             }
         },
         networkCall = { AsteriodRemoteDataSource().getPictureOfDay() },
         saveCallResult = { asteriodDAO.insertPic(it.asDatabaseModel()) }
     )
+
+
 }

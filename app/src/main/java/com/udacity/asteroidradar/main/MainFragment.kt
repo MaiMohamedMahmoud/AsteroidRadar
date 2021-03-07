@@ -37,7 +37,7 @@ class MainFragment : Fragment() {
         val binding = FragmentMainBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
-        binding.pictureObj = viewModel.pictureOfDay.value as PictureOfDay?
+        binding.pic = viewModel
 
         adapter = AsteriodAdapter(AsteriodAdapter.OnClickListener {
             viewModel.setNavigation(it)

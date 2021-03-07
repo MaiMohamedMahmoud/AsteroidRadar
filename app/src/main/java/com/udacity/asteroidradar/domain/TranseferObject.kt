@@ -42,7 +42,7 @@ fun Entity.DBPictureOfDay.asDomainModel(): PictureOfDay {
 }
 
 fun PictureOfDay.asDatabaseModel(): Entity.DBPictureOfDay {
-    return Entity.DBPictureOfDay(
+    return  Entity.DBPictureOfDay(
         media_type = media_type,
         title = title,
         url = url

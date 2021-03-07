@@ -31,7 +31,7 @@ interface AsteriodDAO {
     ): LiveData<List<Entity.DBAsteroid>>
 
     @Query("SELECT * From DayPicture")
-    fun getPic(): LiveData<Entity.DBPictureOfDay>
+    fun getPic(): LiveData<Entity.DBPictureOfDay?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPic(pic: Entity.DBPictureOfDay)

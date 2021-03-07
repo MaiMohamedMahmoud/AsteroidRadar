@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.squareup.picasso.Picasso
+import com.udacity.asteroidradar.domain.DomainAsteriod
 import com.udacity.asteroidradar.domain.PictureOfDay
 
 @BindingAdapter("statusIcon")
@@ -46,6 +47,12 @@ fun bindTextViewToDisplayVelocity(textView: TextView, number: Double) {
     textView.text = String.format(context.getString(R.string.km_s_unit_format), number)
 }
 
+@BindingAdapter("picTitle")
+fun bindTextViewTitle(textView: TextView, picObj: PictureOfDay?) {
+    val context = textView.context
+    textView.text = picObj?.title ?: String.format(context.getString(R.string.no_image))
+}
+
 @BindingAdapter("imgUrl")
 fun bindImage(imageView: ImageView, picObj: PictureOfDay?) {
 
@@ -59,5 +66,6 @@ fun bindImage(imageView: ImageView, picObj: PictureOfDay?) {
 
         }
     }
+
 
 }

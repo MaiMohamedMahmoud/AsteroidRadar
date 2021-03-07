@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="pictureObj"
-            type="com.udacity.asteroidradar.domain.PictureOfDay" />
+            name="pic"
+            type="com.udacity.asteroidradar.main.MainViewModel" />
 
     </data>
 
@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                app:imgUrl="@{pictureObj}"
+                app:imgUrl="@{pic.pictureOfDay.data}"
                 app:srcCompat="@drawable/placeholder_picture_of_day" />
 
             <TextView
@@ -39,7 +39,7 @@
                 android:layout_gravity="bottom"
                 android:background="#55010613"
                 android:padding="16dp"
-                android:text="@{pictureObj.title}"
+                app:picTitle="@{pic.pictureOfDay.data}"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
