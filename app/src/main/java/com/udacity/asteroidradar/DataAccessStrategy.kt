@@ -6,6 +6,7 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.map
 import com.udacity.asteroidradar.domain.UrlResponse
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 import timber.log.Timber
 
@@ -19,6 +20,20 @@ fun <T> performDataBaseOperation(
         emitSource(source)
 
     }
+
+suspend fun <A> performRefreshDataBaseOperation(
+    networkCall: suspend () -> Resource<A>,
+    saveCallResult: suspend (A) -> Unit
+) {
+    val responseStatus = networkCall.invoke()
+    if (responseStatus.status == Resource.Status.SUCCESS) {
+        Log.i("yarab", "inside strategy")
+        saveCallResult(responseStatus.data!!)
+
+    } else if (responseStatus.status == Resource.Status.ERROR) {
+        Timber.i("inside strategy fail")
+    }
+}
 
 fun <T, A> performGetOperation(
     databaseQuery: () -> LiveData<T>,

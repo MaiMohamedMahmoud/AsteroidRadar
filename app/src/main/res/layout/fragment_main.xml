@@ -28,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
+                android:contentDescription="@{pic.pictureOfDay.data.title}"
                 android:scaleType="centerCrop"
                 app:imgUrl="@{pic.pictureOfDay.data}"
                 app:srcCompat="@drawable/placeholder_picture_of_day" />
@@ -39,10 +40,10 @@
                 android:layout_gravity="bottom"
                 android:background="#55010613"
                 android:padding="16dp"
-                app:picTitle="@{pic.pictureOfDay.data}"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:picTitle="@{pic.pictureOfDay.data}" />
         </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
