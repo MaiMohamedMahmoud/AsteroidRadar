@@ -19,6 +19,7 @@ import com.udacity.asteroidradar.domain.asDatabaseModel
 import com.udacity.asteroidradar.domain.asDomainModel
 import com.udacity.asteroidradar.performDataBaseOperation
 import com.udacity.asteroidradar.performGetOperation
+import com.udacity.asteroidradar.performRefreshDataBaseOperation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -125,6 +126,11 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
                 parseAsteriodResponseToList(it.near_earth_objects).asDatabaseModel()
             )
         }
+    )
+
+    suspend fun refreshDatabasefun() = performRefreshDataBaseOperation(
+        networkCall = { AsteriodRemoteDataSource().getPictureOfDay() },
+        saveCallResult = { asteriodDAO.insertPic(it.asDatabaseModel()) }
     )
 
     fun getPictureOfDay() = performGetOperation(
