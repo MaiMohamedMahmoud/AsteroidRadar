@@ -129,8 +129,12 @@ class MainViewRepository(val asteriodDAO: AsteriodDAO) {
     )
 
     suspend fun refreshDatabasefun() = performRefreshDataBaseOperation(
-        networkCall = { AsteriodRemoteDataSource().getPictureOfDay() },
-        saveCallResult = { asteriodDAO.insertPic(it.asDatabaseModel()) }
+        networkCall = { AsteriodRemoteDataSource().getAsteroids() },
+        saveCallResult = {
+            asteriodDAO.insertAll(
+                parseAsteriodResponseToList(it.near_earth_objects).asDatabaseModel()
+            )
+        }
     )
 
     fun getPictureOfDay() = performGetOperation(

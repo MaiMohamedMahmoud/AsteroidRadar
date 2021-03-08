@@ -12,4 +12,6 @@ object DateUtil {
         val dateFormat = SimpleDateFormat(API_QUERY_DATE_FORMAT, Locale.getDefault())
         return dateFormat.format(currentTime)
     }
+
+
 }

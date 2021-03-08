@@ -13,5 +13,14 @@ class AsteriodRemoteDataSource : BaseDataSource() {
         )
     }
 
-    suspend fun getPictureOfDay()= getResult { NasaApi.nasaService.getPictureOfDay(Constants.API_KEY) }
+    suspend fun getTodayAsteroids() = getResult {
+        NasaApi.nasaService.getAsteroids(
+            DateUtil.currentDate(),
+            DateUtil.currentDate(),
+            Constants.API_KEY
+        )
+    }
+
+    suspend fun getPictureOfDay() =
+        getResult { NasaApi.nasaService.getPictureOfDay(Constants.API_KEY) }
 }

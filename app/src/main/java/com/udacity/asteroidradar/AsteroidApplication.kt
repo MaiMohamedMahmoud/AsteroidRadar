@@ -38,9 +38,7 @@ class AsteroidApplication : Application() {
             }.build()
         //here we need to tell our work manager to run our job
         val repeatingRequest =
-            PeriodicWorkRequestBuilder<RefreshDataWork>(1, TimeUnit.DAYS).setConstraints(
-                constraints
-            ).build()
+            PeriodicWorkRequestBuilder<RefreshDataWork>(1, TimeUnit.DAYS).setConstraints(constraints).build()
         //to schedule the work we need to use enqueue messege in WorkManager
         WorkManager.getInstance().enqueueUniquePeriodicWork(
             RefreshDataWork.work_name,
